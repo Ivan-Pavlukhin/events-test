@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 
-const { DB_HOST } = require("./config")
+const DB_HOST = require("./config")
 
 const app = express()
 
