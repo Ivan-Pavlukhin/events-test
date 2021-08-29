@@ -104,3 +104,7 @@ dist
 .tern-port
 
 config.js
+
+yarn.lock
+
+package-lock.json
