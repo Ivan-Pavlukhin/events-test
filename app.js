@@ -1,9 +1,7 @@
-const dotenv = require('dotenv')
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-
-dotenv.config()
+require('dotenv').config()
 
 const { DB_HOST } = process.env
 
