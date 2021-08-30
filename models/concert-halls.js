@@ -25,10 +25,10 @@ const concertHallSchema = Schema({
 }, { versionKey: false, timestamps: true })
 
 const joiConcertHallsSchema = Joi.object({
-  name: Joi.string.required,
-  city: Joi.string.required,
-  phone: Joi.string.required,
-  dateEvent: Joi.date
+  name: Joi.string().required(),
+  city: Joi.string().required(),
+  phone: Joi.string().required(),
+  dateEvent: Joi.date()
 })
 
 const ConcertHall = model('concertHall', concertHallSchema)

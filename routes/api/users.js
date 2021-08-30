@@ -1,7 +1,7 @@
 const express = require('express')
 // TODO validateSchema
 const { joiUserSchema } = require('../../models/user')
-const {validation} = require('../../middelewares')
+const { validation } = require('../../middlewares')
 const { users: ctrl } = require('../../controllers')
 
 const router = express.Router()
