@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 const Joi = require('joi')
 
-const concertHallSchema = Schema({
+const eventExampleSchema = Schema({
   name: {
     type: String,
     required: [true, 'Название зала нужно указать обязательно']
@@ -19,9 +19,12 @@ const concertHallSchema = Schema({
     // maxlength: 15
   },
   dateEvent: {
-    type: Date
+    type: Date,
+    required: true,
+  },
+  size: {
+    type: {}
   }
-  // size:
 }, { versionKey: false, timestamps: true })
 
 const joiConcertHallsSchema = Joi.object({
@@ -31,6 +34,6 @@ const joiConcertHallsSchema = Joi.object({
   dateEvent: Joi.date()
 })
 
-const ConcertHall = model('concertHall', concertHallSchema)
+const ConcertHall = model('concertHall', eventExampleSchema)
 
 module.exports = { ConcertHall, joiConcertHallsSchema }

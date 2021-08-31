@@ -13,7 +13,7 @@ app.use(express.json())
 app.use('/api/v1/users', api.users)
 app.use('/api/v1/concertHalls', api.concertHalls)
 
-const { DB_HOST, PORT = 3000 } = process.env
+const { DB_HOST, PORT = 3001 } = process.env
 
 mongoose.connect(DB_HOST, {
   useNewUrlParser: true,
