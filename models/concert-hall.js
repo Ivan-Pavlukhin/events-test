@@ -13,7 +13,6 @@ const concertHallSchema = Schema({
   phone: {
     type: String,
     required: false,
-    unique: true,
     match: /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/
     // minlength: 15,
     // maxlength: 15
@@ -26,7 +25,7 @@ const concertHallSchema = Schema({
   }
 }, { versionKey: false, timestamps: true })
 
-const joiConcertHallsSchema = Joi.object({
+const joiConcertHallSchema = Joi.object({
   name: Joi.string().required(),
   city: Joi.string().required(),
   phone: Joi.string(),
@@ -36,4 +35,4 @@ const joiConcertHallsSchema = Joi.object({
 
 const ConcertHall = model('concertHall', concertHallSchema)
 
-module.exports = { ConcertHall, joiConcertHallsSchema }
+module.exports = { ConcertHall, joiConcertHallSchema }
