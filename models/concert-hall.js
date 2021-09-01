@@ -21,7 +21,7 @@ const concertHallSchema = Schema({
     type: Date
   },
   size: {
-    type: {}
+    type: []
   }
 }, { versionKey: false, timestamps: true })
 
@@ -33,6 +33,6 @@ const joiConcertHallSchema = Joi.object({
   size: Joi.object()
 })
 
-const ConcertHall = model('concertHall', concertHallSchema)
+const ConcertHall = model('concert-hall', concertHallSchema)
 
 module.exports = { ConcertHall, joiConcertHallSchema }
