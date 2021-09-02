@@ -20,9 +20,11 @@ const concertHallSchema = Schema({
   dateEvent: {
     type: Date
   },
-  size: {
-    type: []
-  }
+  size: [{}]
+
+  // array: [{
+  //     name: String
+  // }],
 }, { versionKey: false, timestamps: true })
 
 const joiConcertHallSchema = Joi.object({

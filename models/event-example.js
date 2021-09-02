@@ -12,7 +12,6 @@ const eventExampleSchema = Schema({
   },
   phone: {
     type: String,
-    required: false,
     unique: true,
     match: /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/
     // minlength: 15,
