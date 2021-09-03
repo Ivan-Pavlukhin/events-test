@@ -12,6 +12,7 @@ app.use(express.json())
 
 app.use('/api/v1/users', api.users)
 app.use('/api/v1/events', api.events)
+app.use('/api/v1/concert-halls', api.concertHalls)
 
 const { DB_HOST, PORT = 4000 } = process.env
 

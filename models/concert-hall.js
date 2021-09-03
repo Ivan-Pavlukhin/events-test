@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 const Joi = require('joi')
 
 const concertHallSchema = Schema({
-  name: {
+  hallName: {
     type: String,
     required: [true, 'Название зала нужно указать обязательно']
   },
@@ -28,7 +28,7 @@ const concertHallSchema = Schema({
 }, { versionKey: false, timestamps: true })
 
 const joiConcertHallSchema = Joi.object({
-  name: Joi.string().required(),
+  hallName: Joi.string().required(),
   city: Joi.string().required(),
   phone: Joi.string(),
   dateEvent: Joi.date(),
