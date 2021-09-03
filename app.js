@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/v1/users', api.users)
-app.use('/api/v1/concertHalls', api.concertHalls)
+app.use('/api/v1/events', api.events)
 
 const { DB_HOST, PORT = 4000 } = process.env
 

@@ -1,12 +1,22 @@
-// const express = require('express')
+const express = require('express')
 
-// const { events: ctrl } = require('../../controllers')
+const { validation } = require('../../middlewares')
+const { joiEventSchema } = require('../../models/event')
+const { events: ctrl } = require('../../controllers')
 
-// const router = express.Router
+const router = express.Router()
 
-// router.post('/', ctrl.add)
+router.post('/', validation(joiEventSchema), ctrl.add)
 
-// module.exports = events
+router.get('/', ctrl.getAll)
+
+router.get('/:id', ctrl.getById)
+
+router.delete('/:id', ctrl.remove)
+
+router.patch('/:id', ctrl.update)
+
+module.exports = router
 
 // const express = require('express')
 

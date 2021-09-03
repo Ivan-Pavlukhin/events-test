@@ -1,8 +1,8 @@
-const { ConcertHall } = require('../../models')
+const { Event } = require('../../models')
 
 const getAll = async (req, res, next) => {
   try {
-    const result = await ConcertHall.find({})
+    const result = await Event.find({})
     res.json({ result })
   } catch (error) {
     next(error)

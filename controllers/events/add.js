@@ -1,8 +1,8 @@
-const { ConcertHall } = require('../../models')
+const { Event } = require('../../models')
 
 const add = async (req, res, next) => {
   try {
-    const result = await ConcertHall.create(req.body)
+    const result = await Event.create(req.body)
     res.status(201).json({
       result
     })
