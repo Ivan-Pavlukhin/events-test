@@ -1,19 +1,19 @@
-const { Schema, model } = require("mongoose");
-const Joi = require("joi");
+const { Schema, model } = require('mongoose')
+const Joi = require('joi')
 
 const eventSchema = Schema(
   {
     eventName: {
       type: String,
-      required: [true, "Название концерта нужно указать обязательно"],
+      required: [true, 'Название концерта нужно указать обязательно'],
     },
     city: {
       type: String,
-      required: [true, "Название город нужно указать обязательно"],
+      required: [true, 'Название город нужно указать обязательно'],
     },
     dateEvent: {
       type: String,
-      require: [true, "Дату проведения нужно указывать обязательно"],
+      require: [true, 'Дату проведения нужно указывать обязательно'],
       // unique: true,
       // match: /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/
       // minlength: 15,
@@ -22,7 +22,7 @@ const eventSchema = Schema(
     },
     hallName: {
       type: String,
-      required: [true, "Название зала нужно указівать обязательно"],
+      required: [true, 'Название зала нужно указівать обязательно'],
     },
     aboutEvent: {
       type: String,
@@ -36,7 +36,7 @@ const eventSchema = Schema(
     },
   },
   { versionKey: false, timestamps: true }
-);
+)
 
 const joiEventSchema = Joi.object({
   eventName: Joi.string().required(),
@@ -46,8 +46,8 @@ const joiEventSchema = Joi.object({
   dateEvent: Joi.date(),
   size: Joi.object(),
   active: Joi.boolean(),
-});
+})
 
-const Event = model("event", eventSchema);
+const Event = model('event', eventSchema)
 
-module.exports = { Event, joiEventSchema };
+module.exports = { Event, joiEventSchema }
