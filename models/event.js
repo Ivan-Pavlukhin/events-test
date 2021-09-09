@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose')
 const Joi = require('joi')
+// const { string } = require('joi')
 
 const eventSchema = Schema(
   {
@@ -27,9 +28,16 @@ const eventSchema = Schema(
     aboutEvent: {
       type: String,
     },
-    size: {
-      type: Object,
-    },
+    size: [
+      {
+        rowName: String,
+        row: [{
+          place: String,
+          active: Boolean,
+          price: String
+        }]
+      }
+    ],
     active: {
       type: Boolean,
       require: true,
@@ -44,7 +52,7 @@ const joiEventSchema = Joi.object({
   hallName: Joi.string().required(),
   aboutEvent: Joi.string().required(),
   dateEvent: Joi.date(),
-  size: Joi.object(),
+  size: Joi.array(),
   active: Joi.boolean(),
 })
 
