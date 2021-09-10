@@ -2,37 +2,55 @@ const { Schema, model } = require('mongoose')
 const Joi = require('joi')
 
 const concertHallSchema = Schema({
-  hallName: {
+  eventName: {
     type: String,
-    required: [true, 'Название зала нужно указать обязательно']
   },
   city: {
     type: String,
-    required: [true, 'Город нужно указать обязательно']
-  },
-  phone: {
-    type: String,
-    required: false,
-    match: /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/
-    // minlength: 15,
-    // maxlength: 15
+    required: [true, 'Название город нужно указать обязательно'],
   },
   dateEvent: {
-    type: Date
+    type: String,
+    // unique: true,
+    // match: /^\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/
+    // minlength: 15,
+    // maxlength: 15
+    // "2021-12-18T13:00"
   },
-  size: [{}]
-
-  // array: [{
-  //     name: String
-  // }],
-}, { versionKey: false, timestamps: true })
+  hallName: {
+    type: String,
+    required: [true, 'Название зала нужно указівать обязательно'],
+  },
+  aboutEvent: {
+    type: String,
+    default: ''
+  },
+  size: [
+    {
+      rowName: String,
+      row: [{
+        place: String,
+        active: Boolean,
+        price: String
+      }]
+    }
+  ],
+  active: {
+    type: Boolean,
+    default: false
+  },
+},
+{ versionKey: false, timestamps: true }
+)
 
 const joiConcertHallSchema = Joi.object({
-  hallName: Joi.string().required(),
+  eventName: Joi.string(),
   city: Joi.string().required(),
-  phone: Joi.string(),
+  hallName: Joi.string().required(),
+  aboutEvent: Joi.string(),
   dateEvent: Joi.date(),
-  size: Joi.object()
+  size: Joi.array().required(),
+  active: Joi.boolean(),
 })
 
 const ConcertHall = model('concert-hall', concertHallSchema)
