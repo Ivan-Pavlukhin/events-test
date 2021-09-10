@@ -31,7 +31,8 @@ const concertHallSchema = Schema({
       row: [{
         place: String,
         active: Boolean,
-        price: String
+        price: String,
+        sold: Boolean
       }]
     }
   ],
