@@ -3,7 +3,7 @@ const Joi = require('joi')
 // const { string } = require('joi')
 
 const eventSchema = Schema(
-  {
+  { 
     eventName: {
       type: String,
       required: [true, 'Название концерта нужно указать обязательно'],
